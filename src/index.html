@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-300">
+    <div class="flex">
+      <!-- sidebar -->
+      <div
+          x-data="{ divWidth: 72 }"
+          class="bg-dark-purple text-white min-h-screen p-5 pt-8 relative"
+          :class="{ 'w-24': divWidth === 24, 'w-74': divWidth === 74 }"
+     
+      >
+        <i
+          x-on:click="divWidth = (divWidth === 74 ? 24 : 74)"
+          class="bx bx-left-arrow-alt text-2xl bg-white text-dark-purple rotate-180 rounded-full absolute duration-100 -left-3 top-9 border border-dark-purple cursor-pointer"
+          :class="{ 'rotate-180': divWidth === 74,  }"
+        ></i>
+        <div class="inline-flex">
+          <i
+            class="bx bx-key text-center bg-amber-400 text-3xl px-2.5 rounded cursor-pointer block float-left ml-5 duration-500"
+            :class="{'rotate-[360deg]' : divWidth === 74}"
+            :class="{'w-full': divWidth === 24}"
+          ></i>
+          <h1
+            class="text-white font-medium text-2xl duration-500"
+            :class="{'hidden': divWidth === 24}"
+          >
+            PKI
+          </h1>
+        </div>
+        <div
+          class="flex items-center rounded-md bg-light-white mt-6 px-3 py-2"
+          :class="{'px-2.5': divWidth === 24}"
+        >
+          <input
+            type="search"
+            class="text-base bg-transparent w-full text-white focus:outline-none"
+            :class="{'hidde':divWidth === 24}"
+            placeholder="جستوجو"
+          />
+          <i
+            class="bx bx-search text-white text-lg block float-right cursor-pointer ml-2"
+          ></i>
+        </div>
+        <ul class="mt-3">
+          <li
+            class="text-gray-300 flex items-center gap-x-4 cursor-pointer p-2 mt-2 text-2xl hover:rounded hover:bg-light-white"
+          >
+            <span class="text-2xl block float-right px-3 text-center"
+              ><i class="bx bx-data"></i
+            ></span>
+            <span
+              class="text-base font-medium flex-1"
+              :class="{'hidden':divWidth === 24}"
+              >مدیریت گواهی</span
+            >
+          </li>
+          <li
+            class="text-gray-300 flex items-center gap-x-4 cursor-pointer p-2 mt-2 text-2xl hover:rounded hover:bg-light-white"
+          >
+            <span class="text-2xl block float-right px-3 text-center"
+              ><i class="bx bxs-edit-alt"></i
+            ></span>
+            <span
+              class="text-base font-medium flex-1"
+              :class="{'hidden':divWidth === 24}"
+              >صدور گواهی</span
+            >
+          </li>
+        </ul>
+      </div>
+  </body>
+</html>
